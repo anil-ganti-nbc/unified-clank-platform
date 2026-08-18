@@ -15,9 +15,13 @@ revision, schema, source registry, classifier/normaliser revisions, checksum,
 and location. It becomes read-only historical evidence for replay, ClankOps,
 and Diagnostic Clank; it is never live production state.
 
-Only the frozen, validated source registry participates in genesis. Primary
-sources remain authoritative product/state evidence; specialist sources remain
-discovery or lead evidence. Each adapter declares what may cross the boundary:
+Only the frozen, validated source registry participates in genesis. It should
+preserve both authoritative-state coverage and early-signal/specialist coverage
+where the domain benefits from it. Primary sources remain authoritative
+product/state evidence; specialist sources remain discovery or lead evidence.
+Initial soak may be authoritative-only, but expansion should actively seek
+specialist sources rather than making the initial baseline an official-only
+production design. Each adapter declares what may cross the boundary:
 rules, fixtures, identities/aliases with provenance, feedback, and delivery /
 dedupe history where supported. Experimental observations, stale cursors,
 temporary events, soak health, and experimental queues are not copied blindly.

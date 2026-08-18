@@ -39,6 +39,14 @@ from clank_runtime.contracts.operations import (
     OperationState,
     OperationType,
 )
+from clank_runtime.contracts.sources import (
+    CoverageFact,
+    EvidenceClaim,
+    EvidenceKind,
+    SourceCapability,
+    SourceDescriptor,
+    SourceRole,
+)
 
 __all__ = [
     "RuntimeIdentity",
@@ -59,6 +67,12 @@ __all__ = [
     "ProductionDatastore",
     "ProductionEpoch",
     "ProductionGenesis",
+    "SourceRole",
+    "SourceCapability",
+    "EvidenceKind",
+    "SourceDescriptor",
+    "CoverageFact",
+    "EvidenceClaim",
     "KNOWN_CONFIDENCE_DIMENSIONS",
     "SOURCE_RELIABILITY",
     "EVIDENCE_STRENGTH",

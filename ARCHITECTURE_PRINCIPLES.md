@@ -32,6 +32,25 @@ unless an adapter explicitly requires genesis. Soak duration is domain-defined,
 not a platform-wide constant. See `PRODUCTION_GENESIS.md` and
 `clank-fleet/docs/adr/0001-production-genesis.md`.
 
+## 1b. Primary and specialist discovery
+
+Primary and specialist evidence are separate epistemic classes, but both are
+first-class discovery inputs. Official sources anchor authoritative state;
+specialist sources extend discovery, lead time, and leak coverage. An
+authoritative baseline is a foundation, not a complete intelligence surface,
+and official coverage alone does not imply sufficient intelligence coverage.
+
+Initial foundation soak may intentionally use only a small authoritative source
+set. Before genesis, expansion should actively seek relevant specialist,
+regional, certification, support, retailer, firmware, and other early-signal
+surfaces. Source provenance, authority, region, surface, and discovery value
+remain independently representable.
+
+A specialist source may create a lead, leak, rumour, or needs-verification
+claim before first-party confirmation, but cannot silently overwrite
+authoritative state. During development, begin conservatively if needed; expand
+aggressively before production.
+
 ## 2. Domain authority stays with clanks
 
 Each clank owns its domain models and domain databases. The central platform never writes back into Layer A domain stores. Historical imports are one-way.
