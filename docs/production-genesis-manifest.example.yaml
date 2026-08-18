@@ -1,0 +1,20 @@
+schema_version: 1
+clank_id: future-clank
+development_archive:
+  id: archive-example
+  integrity_verified: true
+  git_revision: abc123
+  schema_version: "3"
+  source_registry_version: sources-2
+production:
+  db_id: production-example
+  schema_version: "3"
+  git_revision: abc123
+  baseline_mode: baseline
+  novelty_delivery_enabled: false
+validation:
+  identity: pass
+  novelty: pass
+  delivery: pass
+  health: pass
+production_epoch: 1

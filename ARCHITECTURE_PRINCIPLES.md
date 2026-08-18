@@ -13,6 +13,25 @@ P0 work (Dockerized clanks, NAS, Tailscale, domain DB persistence, backup verifi
 
 Do not implement deferred platform features under the guise of “small helpers.”
 
+## 1a. Production Genesis boundary
+
+Development history is not production history. A development corpus may be
+intentionally noisy and has no production novelty authority. Knowledge crosses
+the genesis boundary as reviewed rules, source registries, identity and
+normalisation decisions, fixtures, and regression lessons; exploratory
+observations do not cross wholesale.
+
+Database reset is not market novelty reset: `first_seen_in_new_production_db`
+does not mean `new_to_market`. Production Genesis creates a fresh production
+datastore, baselines it with ordinary novelty delivery disabled, archives the
+development corpus as read-only evidence, and produces Production Epoch 1.
+
+This lifecycle is the default for new or materially exploratory Clanks. Mature
+Clanks use normal source lifecycle, shadow soak, and epoch/rebaseline controls
+unless an adapter explicitly requires genesis. Soak duration is domain-defined,
+not a platform-wide constant. See `PRODUCTION_GENESIS.md` and
+`clank-fleet/docs/adr/0001-production-genesis.md`.
+
 ## 2. Domain authority stays with clanks
 
 Each clank owns its domain models and domain databases. The central platform never writes back into Layer A domain stores. Historical imports are one-way.
