@@ -53,6 +53,10 @@ class SourceDescriptor(BaseModel):
     authority_level: str = Field(min_length=1)
     delivery_permissions: frozenset[str] = frozenset()
     lifecycle_state: str = Field(min_length=1)
+    expected_cadence: str | None = None
+    zero_semantics: str | None = None
+    freshness_characteristics: str | None = None
+    delivery_authority: bool = False
     known_limitations: tuple[str, ...] = ()
 
 
@@ -87,4 +91,3 @@ class EvidenceClaim(BaseModel):
 
     def can_update_authoritative_state(self) -> bool:
         return self.authoritative_state_update_allowed and self.independently_verified
-

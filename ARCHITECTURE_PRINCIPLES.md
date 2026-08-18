@@ -51,6 +51,37 @@ claim before first-party confirmation, but cannot silently overwrite
 authoritative state. During development, begin conservatively if needed; expand
 aggressively before production.
 
+## Supreme Laws
+
+1. UNKNOWN > CONFIDENTLY WRONG.
+2. FIRST SEEN BY CLANK ≠ NEW TO MARKET.
+3. UNHEALTHY OBSERVATION MUST NOT ADVANCE AUTHORITATIVE STATE.
+4. OPERATIONAL HEALTH ≠ INTELLIGENCE HEALTH.
+5. PRIMARY AND SPECIALIST EVIDENCE ARE DISTINCT, BUT BOTH ARE FIRST-CLASS DISCOVERY INPUTS.
+6. CENTRALISED CONTRACTS; DECENTRALISED DOMAIN TRUTH.
+7. KNOWLEDGE CROSSES PRODUCTION GENESIS; EXPLORATORY STATE DOES NOT.
+8. EVERY CONFIRMED FAILURE MUST MAKE THE FLEET HARDER TO FOOL NEXT TIME.
+
+Clanks maintain defensible beliefs about changing external state, not merely
+web pages. Provenance and uncertainty must preserve what was observed, what was
+trustworthy, what was already known, when an event occurred, who claimed it,
+and whether it was delivered. Unified owns generic contracts and control
+semantics; individual Clanks own domain truth and source-specific semantics;
+Motherclank/ClankOps owns later cross-Clank intelligence; Diagnostic Clank is
+the read-only investigator.
+
+The generic pipeline is OBSERVE → FETCH → PARSE → EXTRACT → NORMALISE →
+IDENTIFY → INTERPRET → CLASSIFY → SCORE/FILTER → EVENT → DELIVERY. Diagnose
+upstream and describe downstream: the first failed gate owns root cause.
+Reconstruction precedes remediation, and meaningful confirmed failures should
+become durable evidence, fixtures, lessons, or regression cases.
+
+Raw evidence is immutable and interpretations are versioned. Agent identity is
+claim provenance, not truth authority. Unmeasured is not zero; unsupported is
+not failed. One authoritative writer is required unless safe concurrency and
+fencing are explicitly implemented; uncertain ownership prefers unavailability
+over split-brain corruption.
+
 ## 2. Domain authority stays with clanks
 
 Each clank owns its domain models and domain databases. The central platform never writes back into Layer A domain stores. Historical imports are one-way.
