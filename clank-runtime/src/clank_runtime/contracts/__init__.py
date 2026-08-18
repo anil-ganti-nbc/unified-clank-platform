@@ -47,6 +47,22 @@ from clank_runtime.contracts.genesis import (
     ProductionGenesis,
 )
 from clank_runtime.contracts.health import CollectorSummary, HealthPayload
+from clank_runtime.contracts.human_feedback import (
+    CapabilitySupport,
+    FeedbackProvenance,
+    FeedbackRecord,
+    FindingReference,
+    HumanFeedbackStore,
+    HumanQCCapability,
+    HumanQCCapabilityDeclaration,
+    ModelPrediction,
+    OperatorDisposition,
+    ReviewItem,
+    ReviewProgress,
+    ReviewState,
+    apply_disposition,
+    next_unreviewed,
+)
 from clank_runtime.contracts.identity import RuntimeIdentity
 from clank_runtime.contracts.operations import (
     OperationResult,
@@ -81,6 +97,20 @@ __all__ = [
     "ProductionDatastore",
     "ProductionEpoch",
     "ProductionGenesis",
+    "OperatorDisposition",
+    "ReviewState",
+    "FindingReference",
+    "FeedbackProvenance",
+    "FeedbackRecord",
+    "ReviewItem",
+    "ReviewProgress",
+    "HumanQCCapability",
+    "CapabilitySupport",
+    "HumanQCCapabilityDeclaration",
+    "ModelPrediction",
+    "HumanFeedbackStore",
+    "apply_disposition",
+    "next_unreviewed",
     "SourceRole",
     "SourceCapability",
     "EvidenceKind",

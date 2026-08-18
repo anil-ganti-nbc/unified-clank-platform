@@ -82,6 +82,22 @@ not failed. One authoritative writer is required unless safe concurrency and
 fencing are explicitly implemented; uncertain ownership prefers unavailability
 over split-brain corruption.
 
+## 1c. Shared human-QC review rule
+
+Every Clank UI that surfaces reviewable findings should expose the standard
+dispositions `USEFUL`, `NOT USEFUL`, `FALSE POSITIVE`, and `OUT OF STOCK`. A
+disposition commits durable human feedback with actor, time, and provenance; it
+does not delete evidence, mutate authoritative domain truth, grant source or
+delivery authority, or become a model prediction. Review state is separate
+from disposition.
+
+After a disposition, the finding leaves the active review queue, remains in
+history/search, progress counters update where measurable, and the next
+unreviewed eligible finding is exposed. The operator must be able to QC the
+entire collector haul, not merely the first visible page. Domain-specific
+fields, tabs, and layouts remain owned by the individual Clank. See
+`HUMAN_FEEDBACK_AND_REVIEW.md` and ADR 0003.
+
 ## 2. Domain authority stays with clanks
 
 Each clank owns its domain models and domain databases. The central platform never writes back into Layer A domain stores. Historical imports are one-way.

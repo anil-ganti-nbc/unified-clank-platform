@@ -17,3 +17,8 @@ The constitution deliberately does not implement ClankOps intelligence,
 Diagnostic investigation, autonomous remediation, or a universal source score.
 Those consumers may reason over the declared facts later. Legacy Clanks may use
 read-only adapters and advertise partial or unsupported capability.
+
+The constitution also adopts the shared human-QC contract: reviewable findings
+use the four dispositions `USEFUL`, `NOT USEFUL`, `FALSE POSITIVE`, and `OUT OF
+STOCK` with durable provenance and append-only history. This records operator
+judgement without making it authoritative domain truth; see ADR 0003.

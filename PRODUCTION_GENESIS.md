@@ -22,8 +22,10 @@ product/state evidence; specialist sources remain discovery or lead evidence.
 Initial soak may be authoritative-only, but expansion should actively seek
 specialist sources rather than making the initial baseline an official-only
 production design. Each adapter declares what may cross the boundary:
-rules, fixtures, identities/aliases with provenance, feedback, and delivery /
-dedupe history where supported. Experimental observations, stale cursors,
+rules, fixtures, identities/aliases with provenance, human feedback history,
+and delivery / dedupe history where supported. Feedback is provenance-
+preserving knowledge, not an instruction to copy exploratory observations or
+mutate domain truth. Experimental observations, stale cursors,
 temporary events, soak health, and experimental queues are not copied blindly.
 
 The first production crawl is `BASELINE_MODE`. First-seen membership is not
@@ -41,3 +43,9 @@ advisory decisions remain outside Unified.
 This does not require destructive recreation for a mature production Clank
 adding a well-understood source. Such changes use source lifecycle, shadow soak,
 baseline firewall, and controlled ProductionEpoch transitions.
+
+The shared human-QC contract is defined in `HUMAN_FEEDBACK_AND_REVIEW.md`.
+When a Clank supports it, feedback history should survive Genesis and later
+ProductionEpoch transitions according to that Clank's explicit, auditable
+capability and migration rules; unsupported or unknown capability must remain
+explicit rather than being represented as zero feedback.
