@@ -14,7 +14,7 @@ services:
     #   - "8000:8000"   # intentionally commented; do not expose publicly
     environment:
       # All values are placeholders. See .env.example and config conventions.
-      CLANK_FLEET_API_HOST: "0.0.0.0"
+      CLANK_FLEET_API_HOST: "127.0.0.1"
       CLANK_FLEET_API_PORT: "8000"
       CLANK_ENV: "stage0"
     # volumes: deferred — no hard-coded NAS paths
