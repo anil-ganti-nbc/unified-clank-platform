@@ -1,5 +1,9 @@
 # Unified Clank Infrastructure — Stage 0.5
 
+> **Phase 0: SUPERSEDED PROTOTYPE — promotion frozen.** `diagnostic-clank` is
+> the canonical fleet control plane. Do not extend or promote this repository
+> unless a migration review identifies unique functionality to preserve.
+
 > Status: Stage 0.5 skeleton — no production behavior
 
 Skeleton + architecture hardening. **No production behavior.**
