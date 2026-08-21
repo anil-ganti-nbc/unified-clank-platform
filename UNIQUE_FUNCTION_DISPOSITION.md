@@ -1,6 +1,8 @@
 # Unified Clank Platform function disposition
 
-Status: **REVIEW REQUIRED — supersession is not accepted or complete.**
+Status: **FROZEN SUPERSESSION CANDIDATE — REVIEW REQUIRED — NOT CANONICAL.**
+Supersession is not accepted or complete, and this repository must not be
+promoted while the governance decision remains open.
 Compared: 2026-08-21 against the current `diagnostic-clank` Phase 0 branch.
 
 | Area | Evidence | Proposed disposition |

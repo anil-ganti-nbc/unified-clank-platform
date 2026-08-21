@@ -1,8 +1,9 @@
 # Unified Clank Infrastructure — Stage 0.5
 
-> **Phase 0: PROPOSED FOR SUPERSESSION — promotion frozen.** ADR-0001 proposes
+> **Phase 0: FROZEN SUPERSESSION CANDIDATE — NOT CANONICAL — DO NOT PROMOTE.** ADR-0001 proposes
 > `diagnostic-clank` as the canonical fleet control plane. Do not extend or
-> promote this repository while the reviewed disposition remains open.
+> promote this repository while the reviewed disposition remains open. Only an
+> explicit governance decision can complete supersession or authorize archival.
 
 > Status: Stage 0.5 skeleton — no production behavior
 
