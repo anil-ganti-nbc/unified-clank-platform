@@ -1,0 +1,202 @@
+# Authoritative Clank fleet manifest.
+#
+# This is the fleet's source of truth for STABLE identity — not live state.
+# Do not hand-maintain HEAD SHAs, health, or deployment revisions here: those
+# are discovered at query time by scripts/reconcile_fleet.py against GitHub,
+# this Mac, Hetzner, and the NAS. Editing this file to "fix" a reconciliation
+# mismatch is almost always wrong — fix the actual environment instead.
+#
+# Compiled from OPERATION CLANK CENSUS + UNDUCK (2026-08-18): independent
+# cross-referencing of local Mac checkouts, GitHub repos, Hetzner deploy
+# targets, and NAS state. See that session's report for full provenance.
+#
+# state_class:
+#   production   — has at least one source/component with editorial/delivery
+#                  authority in a real deployment target
+#   experimental — deployed and running, but not yet notification-authoritative
+#                  anywhere, or explicitly soak-only
+#   deferred     — real engine exists, intentionally not yet deployed anywhere
+#   deprecated   — superseded or abandoned; kept here only so it is never
+#                  mistaken for a missing/undiscovered Clank
+#
+# lifecycle_maturity is a coarse human summary, not the per-source collector
+# lifecycle (DISCOVERED -> ... -> PRODUCTION) defined in docs/SOURCE_EXPANSION_LIFECYCLE.md,
+# which applies within a single Clank's source roster, not to the Clank as a whole.
+
+clanks:
+  - clank_id: watch-clank
+    display_name: Watch Clank
+    primary_purpose: >-
+      Watch/horology news and product intelligence across many first-party
+      and specialist sources (Casio, Citizen, Seiko, Timex, WatchTime, etc.),
+      with active Discord delivery.
+    project_type: collector-and-editorial
+    repository_url: https://github.com/anil-ganti-nbc/watch-clank
+    expected_local_directory: watch-clank
+    native_client_support: true
+    expected_deployment_targets: [hetzner, mac-field-test]
+    state_class: production
+    lifecycle_maturity: mature-production
+
+  - clank_id: smartphone-clank
+    display_name: Smartphone Clank
+    primary_purpose: >-
+      Smartphone catalogue/support intelligence across Samsung, Google,
+      Nothing, OnePlus, Honor, Motorola, Oppo, Realme.
+    project_type: collector-and-editorial
+    repository_url: https://github.com/anil-ganti-nbc/smartphone-clank
+    expected_local_directory: smartphone-clank
+    native_client_support: true
+    expected_deployment_targets: [hetzner, mac-field-test]
+    state_class: production
+    lifecycle_maturity: mature-production
+
+  - clank_id: smartwatch-clank
+    display_name: Smartwatch Clank
+    primary_purpose: >-
+      Samsung smartwatch catalogue and regional support-presence
+      intelligence (support presence != retail availability).
+    project_type: collector
+    repository_url: https://github.com/anil-ganti-nbc/smartwatch-clank
+    expected_local_directory: smartwatch-clank
+    native_client_support: true
+    expected_deployment_targets: [hetzner, mac-field-test]
+    state_class: experimental
+    lifecycle_maturity: deployed-no-delivery
+
+  - clank_id: feature-phone-clank
+    display_name: Feature Phone Clank
+    primary_purpose: >-
+      HMD/Nokia feature-phone and smartphone classification (accepted /
+      ambiguous / rejected / incomplete) from public sources.
+    project_type: collector-and-classifier
+    repository_url: https://github.com/anil-ganti-nbc/feature-phone-clank
+    expected_local_directory: feature-phone-clank
+    native_client_support: true
+    expected_deployment_targets: [hetzner, mac-field-test]
+    state_class: experimental
+    lifecycle_maturity: deployed-no-delivery
+
+  - clank_id: tablet-clank
+    display_name: Tablet Clank
+    primary_purpose: >-
+      Evidence-first tablet product/catalogue intelligence (Apple, Honor,
+      TCL, with Samsung/Lenovo/Xiaomi reconnaissance) prioritizing
+      trustworthy provenance over source count.
+    project_type: collector
+    repository_url: https://github.com/anil-ganti-nbc/tablet-clank
+    expected_local_directory: tablet-clank
+    native_client_support: false
+    expected_deployment_targets: [hetzner]
+    state_class: production
+    lifecycle_maturity: promotion-wave-1
+    notes: >-
+      Developed primarily on the owner's Windows PC, not this Mac -- the
+      GitHub/Hetzner state is authoritative, not any single local checkout.
+      Honor + TCL sources are production-allowlisted (2026-08-17) after a
+      completed 12-cycle soak; Apple US/IN and Samsung remain experimental.
+      No native macOS client exists or is planned yet -- do not build one
+      without first establishing engine truth on the target machine.
+
+  - clank_id: free-game-tracker
+    display_name: Free Game Tracker
+    primary_purpose: >-
+      Tracks free/promotional game and subscription-perk offers across
+      platforms, with active Discord delivery as its primary output.
+    project_type: collector-and-editorial
+    repository_url: https://github.com/anil-ganti-nbc/free-game-tracker
+    expected_local_directory: free-game-tracker
+    native_client_support: false
+    expected_deployment_targets: [hetzner]
+    state_class: production
+    lifecycle_maturity: mature-production
+
+  - clank_id: chinese-tech-wire
+    display_name: Chinese Tech Wire
+    primary_purpose: >-
+      Chinese-language tech/GPU/semiconductor newsroom intelligence (ITHome,
+      MyDrivers, Chiphell, etc.) with editorial lead review workflow.
+    project_type: newsroom-intelligence
+    repository_url: https://github.com/anil-ganti-nbc/chinese-tech-wire
+    expected_local_directory: chinese-tech-wire
+    native_client_support: true
+    expected_deployment_targets: [hetzner, mac-field-test]
+    state_class: experimental
+    lifecycle_maturity: deployed-no-delivery
+
+  - clank_id: korean-tech-wire
+    display_name: Korean Tech Wire
+    primary_purpose: >-
+      Korean-language technology newsroom intelligence (SK hynix, Samsung
+      Newsroom Korea, The Elec, LG Display, ETNews).
+    project_type: newsroom-intelligence
+    repository_url: https://github.com/anil-ganti-nbc/korean-tech-wire
+    expected_local_directory: korean-tech-wire
+    native_client_support: true
+    expected_deployment_targets: [hetzner, mac-field-test]
+    state_class: experimental
+    lifecycle_maturity: deployed-no-delivery
+    notes: >-
+      Runs on Hetzner as a native systemd user process/timer
+      (korean-tech-wire-soak.timer), not a container -- do not assume the
+      Docker-based deployment pattern used by most other Clanks applies here.
+
+  - clank_id: semiconductor-intelligence
+    display_name: Semiconductor Intelligence
+    primary_purpose: >-
+      Semiconductor industry news/claim intelligence with persistent SQLite
+      lease scheduling and a broader claim/evidence schema.
+    project_type: newsroom-intelligence
+    repository_url: https://github.com/anil-ganti-nbc/semiconductor-intelligence
+    expected_local_directory: semiconductor-intelligence
+    native_client_support: true
+    expected_deployment_targets: [hetzner, mac-field-test]
+    state_class: experimental
+    lifecycle_maturity: deployed-no-delivery
+    notes: >-
+      Native macOS client is intentionally read-only by design (not a bug) --
+      confirm intended field-test behavior with the owner before changing it.
+
+  - clank_id: oem-radar
+    display_name: OEM Radar
+    primary_purpose: >-
+      OEM/manufacturer roadmap and announcement radar; first Clank migrated
+      to the NAS as the migration-pattern canary.
+    project_type: collector
+    repository_url: https://github.com/anil-ganti-nbc/oem-radar
+    expected_local_directory: oem-radar
+    native_client_support: false
+    expected_deployment_targets: [hetzner, nas]
+    state_class: production
+    lifecycle_maturity: mature-production
+    notes: >-
+      NAS deployment is the accepted canary for the fleet's NAS migration
+      pattern (DSM Task Scheduler, not Docker restart policy).
+
+  # -- deprecated / explicitly-not-active entries kept for the record --
+  # these exist on GitHub but must never be mistaken for missing Clanks
+  # or accidentally revived.
+
+  - clank_id: free-game-tracker-vibe-coded
+    display_name: Free Game Tracker (vibe-coded, abandoned)
+    primary_purpose: "Superseded prototype; free-game-tracker is authoritative."
+    project_type: collector-and-editorial
+    repository_url: https://github.com/anil-ganti-nbc/free-game-tracker-vibe-coded
+    expected_local_directory: null
+    native_client_support: false
+    expected_deployment_targets: []
+    state_class: deprecated
+    lifecycle_maturity: abandoned
+    notes: "Last pushed 2026-08-03. Do not deploy or resume."
+
+  - clank_id: semi-int-platform
+    display_name: Semi-Int Platform (empty precursor)
+    primary_purpose: "Empty repository, no commits -- likely an abandoned early name for semiconductor-intelligence."
+    project_type: unknown
+    repository_url: https://github.com/anil-ganti-nbc/semi-int-platform
+    expected_local_directory: null
+    native_client_support: false
+    expected_deployment_targets: []
+    state_class: deprecated
+    lifecycle_maturity: abandoned
+    notes: "Confirm with the owner whether this can be deleted."
